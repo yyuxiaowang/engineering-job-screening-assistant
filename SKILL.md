@@ -11,6 +11,8 @@ Identify and rank suitable public industry and engineering-research roles for an
 
 Use the least expensive route that can support the requested conclusion. Do not force every request through all filters or all fit levels.
 
+The workflow is optimized for Chinese-language recruitment contexts. Interact in the user's language and preserve official role titles and source evidence in their original language.
+
 ## Invariants
 
 1. Use current official sources for recruitment scope, eligibility, duties, status, and application links; label historical or incomplete material accordingly.

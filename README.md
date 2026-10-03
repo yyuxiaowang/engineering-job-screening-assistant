@@ -1,56 +1,56 @@
 # Engineering Job Screening Assistant
 
-工科博士招聘筛选与岗位适配。当前为试用版，欢迎通过 Issues 反馈问题；请勿提交个人材料或敏感信息。
+A reusable AI skill that screens and ranks industry and engineering R&D roles for engineering PhDs using verified recruitment information and the candidate's research evidence.
 
-本 Skill 用于工科博士的产业与工程研发岗位筛选：核验官方招聘信息，从少量岗位或大型招聘门户中筛选候选岗位，并结合个人研究经历进行适配分析和排序。
+Optimized for Chinese-language recruitment contexts, with English documentation and instructions. Supports employers, corporate research institutes, group subsidiaries, and research organizations using public job listings. Not intended for university faculty applications.
 
-适用于企业、企业研究院、集团下属单位及采用公开职位招聘流程的科研机构。不适用于高校教职申请。
+Preview release. Feedback is welcome through Issues; do not submit personal materials or sensitive information.
 
-## 安装
+## Installation
 
-在 Codex 中发送：
-
-```text
-使用 $skill-installer 将 https://github.com/yyuxiaowang/engineering-job-screening-assistant 仓库根目录的 Skill 安装为 engineering-phd-job-audit。
-```
-
-需要具备网页检索和授权文件读取能力的 AI 工具；动态招聘页可能需要浏览器工具。辅助脚本使用 Python 3.10 或以上版本，仅依赖标准库。当前以 Codex 为主要使用环境，其他工具的兼容性尚未验证。
-
-## 如何调用
-
-显式调用：
+Send this request in Codex:
 
 ```text
-$engineering-phd-job-audit 筛选XX公司
+Use $skill-installer to install the skill at the root of https://github.com/yyuxiaowang/engineering-job-screening-assistant as engineering-phd-job-audit.
 ```
 
-也可以完整描述任务：
+Requires an AI tool with web search and authorized local-file access; dynamic recruitment pages may require browser control. Optional helper scripts require Python 3.10+ and use only the standard library. Codex is the primary environment; compatibility with other tools has not been verified.
+
+## Usage
+
+Invoke the skill:
 
 ```text
-执行engineering-phd-job-audit，分步骤筛选XX公司2027届校招岗位，每轮完成后等我确认。岗位列表页是<直接显示职位的链接>；如果没有，请自行查找。授权只读访问<文件夹路径>，其中包括简历、研究项目、代表论文、研究汇报和求职记录；也可以只读访问<其他路径>补充候选人信息。将每轮岗位清单、删除记录、读取的职位详情和最终报告保存到<可写项目路径>/<公司招聘文件夹>。工作地点和岗位类型没有特殊要求，请根据候选人的实际研究背景筛选。同时授权将实际采用的关键文件复制到该招聘文件夹并记录来源。
+$engineering-phd-job-audit Screen roles at <company>
 ```
 
-请提供对岗位筛选有帮助的信息，包括但不限于：
+For a more complete request:
 
-- 目标公司、招聘项目和招聘范围
-- 直接显示职位的招聘列表页；没有可以要求Skill自行查找
-- 候选人资料的文件或文件夹路径，例如简历、研究项目、代表论文和其他成果材料
-- 执行方式：分步骤执行，或不中断地完整执行
-- 用于保存每轮结果的可写项目路径
-- 明确需要执行的地点、岗位或其他硬性限制；没有可以不提供
-- 需要额外调查的内容，例如团队、研究成果、职级或薪资
+```text
+Use $engineering-phd-job-audit to screen <company>'s <year> campus recruitment in staged mode, waiting for my confirmation after each stage. The position-list page is <URL>; locate it if unavailable. I authorize read-only access to <material folder>, containing my resume, research projects, representative papers, presentations, and job-search records, and to <additional path> for supporting evidence. Save each stage's role lists, removal logs, retrieved job descriptions, and final report under <writable project path>/<company folder>. I have no location or role restrictions; infer suitable roles from my research evidence. I also authorize copying only the key source files used into the audit folder and recording their sources.
+```
 
-Skill只读取用户明确提供或指定的候选人材料，不会自行搜索工作区中的简历。缺少影响筛选的关键信息时，Skill会先询问用户。少量岗位直接审查；岗位较多时先读取招聘项目、官网筛选项和岗位数量。在分步骤模式下，确认筛选范围后才采集完整岗位清单并继续分轮筛选。
+Provide information useful to the audit, including:
 
-## 输出
+- Target company, recruitment program, and hiring scope
+- Direct position-list URL, or a request to locate it
+- Candidate-material paths, such as a resume, projects, papers, and other research evidence
+- Execution mode: staged confirmation or continuous execution
+- Writable project path for stage outputs
+- Any explicit location, role, or other hard constraints; omit if none
+- Additional investigation requested, such as team research, level, or compensation
 
-- 已核验的招聘范围、岗位状态和官方链接
-- 筛选结果、删除依据及保留岗位
-- 岗位适配度、主要差距和推荐排序
-- 按需调查团队、研究成果、职级与薪资
+The skill reads only explicitly supplied or authorized candidate materials, never searching the workspace for resumes. It asks for missing critical inputs before proceeding. Small inventories receive direct review; larger portals start with recruitment programs, official filters, and workload assessment. In staged mode, scope confirmation precedes full inventory collection and successive filtering rounds.
 
-结论会区分官方事实、公开证据、合理推断和未确认信息。
+## Outputs
 
-## 许可证
+- Verified recruitment scope, role status, and official links
+- Retained roles and auditable removal reasons
+- Candidate-specific fit, key gaps, and recommended ranking
+- Team, research, level, and compensation evidence when requested
 
-[MIT](LICENSE)。允许使用、修改和分发，包括商业使用；须保留版权声明和许可证。
+Reports distinguish official facts, public evidence, reasonable inference, and unconfirmed information.
+
+## License
+
+[MIT](LICENSE). Use, modification, and redistribution, including commercial use, are permitted with the copyright notice and license retained.

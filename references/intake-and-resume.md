@@ -95,7 +95,7 @@ When useful, provide a response example that emphasizes source access rather tha
 Review the specified recruitment scope in staged mode. I authorize read-only access to <candidate-material folder>, which contains my resume, publications, research presentations, job-search records, and other background material. You may also read <additional path>. Save every stage under <writable project root>/<company and scope>. I have no location or role constraints; infer suitable roles from the verified materials. I also authorize copying only the key files used into the audit folder and recording their sources.
 ```
 
-Use `继续<公司>招聘审查` or the equivalent in the user's language as the company-specific resume phrase.
+Use `Continue <company> recruitment audit` or the equivalent in the user's language as the company-specific resume phrase.
 
 If the task is multi-turn or costly, create `Recruitment_Intake_<Company>_<Program>_<Year>.md` containing:
 

@@ -14,23 +14,24 @@ from pathlib import Path
 from typing import Any, Iterable
 
 
+# Escaped aliases preserve Chinese-language headers in ASCII source.
 ALIASES = {
-    "role_id": ["role_id", "job_id", "position_id", "职位编号", "岗位编号"],
-    "group": ["group", "集团", "招聘集团"],
-    "unit": ["unit", "company", "单位", "招聘单位", "公司"],
-    "program": ["program", "招聘项目", "项目"],
-    "cohort": ["cohort", "届别", "毕业届别"],
-    "title": ["title", "job_title", "岗位名称", "职位名称"],
-    "category": ["category", "职位类别", "岗位类别"],
-    "degree": ["degree", "学历", "学历要求"],
-    "majors": ["majors", "major", "专业", "专业要求"],
-    "location": ["location", "city", "地点", "工作地点", "城市"],
-    "url": ["url", "job_url", "职位链接", "岗位链接"],
-    "status": ["status", "招聘状态", "状态"],
-    "duties": ["duties", "responsibilities", "岗位职责", "工作职责"],
-    "requirements": ["requirements", "qualifications", "任职要求", "任职条件"],
-    "source_url": ["source_url", "list_url", "来源链接", "招聘入口"],
-    "accessed_at": ["accessed_at", "采集日期", "访问日期"],
+    "role_id": ["role_id", "job_id", "position_id", "\u804c\u4f4d\u7f16\u53f7", "\u5c97\u4f4d\u7f16\u53f7"],
+    "group": ["group", "\u96c6\u56e2", "\u62db\u8058\u96c6\u56e2"],
+    "unit": ["unit", "company", "\u5355\u4f4d", "\u62db\u8058\u5355\u4f4d", "\u516c\u53f8"],
+    "program": ["program", "\u62db\u8058\u9879\u76ee", "\u9879\u76ee"],
+    "cohort": ["cohort", "\u5c4a\u522b", "\u6bd5\u4e1a\u5c4a\u522b"],
+    "title": ["title", "job_title", "\u5c97\u4f4d\u540d\u79f0", "\u804c\u4f4d\u540d\u79f0"],
+    "category": ["category", "\u804c\u4f4d\u7c7b\u522b", "\u5c97\u4f4d\u7c7b\u522b"],
+    "degree": ["degree", "\u5b66\u5386", "\u5b66\u5386\u8981\u6c42"],
+    "majors": ["majors", "major", "\u4e13\u4e1a", "\u4e13\u4e1a\u8981\u6c42"],
+    "location": ["location", "city", "\u5730\u70b9", "\u5de5\u4f5c\u5730\u70b9", "\u57ce\u5e02"],
+    "url": ["url", "job_url", "\u804c\u4f4d\u94fe\u63a5", "\u5c97\u4f4d\u94fe\u63a5"],
+    "status": ["status", "\u62db\u8058\u72b6\u6001", "\u72b6\u6001"],
+    "duties": ["duties", "responsibilities", "\u5c97\u4f4d\u804c\u8d23", "\u5de5\u4f5c\u804c\u8d23"],
+    "requirements": ["requirements", "qualifications", "\u4efb\u804c\u8981\u6c42", "\u4efb\u804c\u6761\u4ef6"],
+    "source_url": ["source_url", "list_url", "\u6765\u6e90\u94fe\u63a5", "\u62db\u8058\u5165\u53e3"],
+    "accessed_at": ["accessed_at", "\u91c7\u96c6\u65e5\u671f", "\u8bbf\u95ee\u65e5\u671f"],
 }
 
 CANONICAL_FIELDS = tuple(ALIASES)
